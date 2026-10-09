@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Emoji.css"
+import Atributo from "./Atributo";
 
 type EMOJI_KEYS = "happy" | "sick" | "dead" | "neutro";
 
@@ -52,13 +53,19 @@ export default function Emoji() {
     console.log("Status:", status);
     return (
         <>  
-            <div className="emoji">{EMOJI_MAP.get(status) || "🫥"}</div>
+            <div className="emoji">
+                <div className="emoji">{EMOJI_MAP.get(status) || "🫥"}</div>
 
-            <div className="acoes" style={{display: "flex", justifyContent: "center", gap: "0.5rem", marginTop: "1rem"}}>
-                <button onClick={happyClick}>Feliz</button>
-                <button onClick={sickClick}>Doente</button>
-                <button onClick={deadClick}>Morto</button>
-                <button onClick={cicloClick}>Ciclo</button>
+                <div className="atributos" style={{display: "flex", justifyContent: "center", gap: "0.5rem", marginTop: "1rem"}}>
+                    <Atributo icone="❤"/>
+                </div>
+
+                <div className="acoes" style={{display: "flex", justifyContent: "center", gap: "0.5rem", marginTop: "1rem"}}>
+                    <button onClick={happyClick}>Feliz</button>
+                    <button onClick={sickClick}>Doente</button>
+                    <button onClick={deadClick}>Morto</button>
+                    <button onClick={cicloClick}>Ciclo</button>
+                </div>
             </div>
         </>
     )
