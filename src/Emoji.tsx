@@ -18,12 +18,28 @@ export default function Emoji() {
         setStatus("happy");
     }
 
+    function sickClick() {
+        console.log("Status:", status);
+        console.log("Sick");
+        setStatus("sick");
+    }
+
+    function deadClick() {
+        console.log("Status:", status);
+        console.log("Dead");
+        setStatus("dead");
+    }
+
+    console.log("desenhando");
+    console.log("Status:", status);
     return (
         <>  
             <div className="emoji">{EMOJI_MAP.get(status) || "🫥"}</div>
 
             <div className="acoes">
                 <button onClick={happyClick}>Feliz</button>
+                <button onClick={sickClick}>Doente</button>
+                <button onClick={deadClick}>Morto</button>
             </div>
         </>
     )
