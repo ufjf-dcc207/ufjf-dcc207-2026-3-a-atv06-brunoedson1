@@ -1,4 +1,4 @@
-.container {
+.emoji {
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-.emoji-grande {
+.situacao {
     font-size: 6rem;
     flex-shrink: 0;
 }
