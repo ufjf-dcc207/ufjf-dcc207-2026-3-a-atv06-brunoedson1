@@ -1,9 +1,12 @@
 .atributo {
     display: flex;
+    align-items: center;
+    gap: 0.5rem;
     .ativo {
         scale: 1.1;
     }
 }
+
 
 .inativo {
     filter: grayscale(100%);

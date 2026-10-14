@@ -53,14 +53,17 @@ export default function Emoji() {
     console.log("Status:", status);
     return (
         <>  
-            <div className="emoji">
-                <div className="emoji">{EMOJI_MAP.get(status) || "🫥"}</div>
+            <div className="container">
+                <div className="emoji-grande">{EMOJI_MAP.get(status) || "🫥"}</div>
 
-                <div className="atributos" style={{display: "flex", justifyContent: "center", gap: "0.5rem", marginTop: "1rem"}}>
-                    <Atributo icone="❤"/>
+                <div className="atributos">
+                    <Atributo icone="❤️"/>
+                    <Atributo icone="🔋"/>
+                    <Atributo icone="💧"/>
+                    <Atributo icone="🍗"/>
                 </div>
 
-                <div className="acoes" style={{display: "flex", justifyContent: "center", gap: "0.5rem", marginTop: "1rem"}}>
+                <div className="acoes">
                     <button onClick={happyClick}>Feliz</button>
                     <button onClick={sickClick}>Doente</button>
                     <button onClick={deadClick}>Morto</button>
