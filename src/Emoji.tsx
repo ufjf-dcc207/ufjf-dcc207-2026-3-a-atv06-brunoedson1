@@ -21,37 +21,40 @@ export default function Emoji() {
     });
 
     function onAlimentar() {
-        // if(saude === 0) return;
-        // setComida(Math.min(5, comida + 1));
+        if(emoji.vida === 0) return;
+        setEmoji(prevEmoji => ({...prevEmoji, comida: Math.min(5, prevEmoji.comida + 1)}));
     }
 
     function onHidratar() {
-        // if(saude === 0) return;
-        // setAgua(Math.min(5, agua + 1));
+        if(emoji.vida === 0) return;
+        setEmoji((prevEmoji) => ({...prevEmoji, agua: Math.min(5, prevEmoji.agua + 1)}));
     }
 
     function onLigarLuz() {
-        // setLuz(!luz);
+        setEmoji((prevEmoji) => ({...prevEmoji, luz: !prevEmoji.luz}));
     }
-
+ 
     function onCiclo() {
-        // if(saude === 0) return;
-        // setComida(Math.max(0, comida - 1));
-        // if (comida === 0) {
-        //     setSaude(Math.max(0, saude - 1));
-        // }
-        // setAgua(Math.max(0, agua - 1));
-        // if (agua === 0) {
-        //     setSaude((prevSaude) => Math.max(0, prevSaude - 1));
-        // }
-        // if (luz) {
-        //     setEnergia(Math.max(0, energia - 1));
-        //     if (energia === 0) {
-        //         setSaude((prevSaude) => Math.max(0, prevSaude - 1));
-        //     }
-        // } else {
-        //     setEnergia(Math.min(5, energia + 1));
-        // }
+        if(emoji.vida === 0) return;
+
+        setEmoji((prevEmoji) => ({...prevEmoji, comida: Math.max(0, prevEmoji.comida - 1)}));
+        if (emoji.comida === 0) {
+            setEmoji((prevEmoji) => ({...prevEmoji, vida: Math.max(0, prevEmoji.vida - 1)}));
+        }
+
+        setEmoji((prevEmoji) => ({...prevEmoji, agua: Math.max(0, prevEmoji.agua - 1)}));
+        if (emoji.agua === 0) {
+            setEmoji((prevEmoji) => ({...prevEmoji, vida: Math.max(0, prevEmoji.vida - 1)}));
+        }
+
+        if (emoji.luz) {
+            setEmoji((prevEmoji) => ({...prevEmoji, energia: Math.max(0, prevEmoji.energia - 1)}));
+            if (emoji.energia === 0) {
+                setEmoji((prevEmoji) => ({...prevEmoji, vida: Math.max(0, prevEmoji.vida - 1)}));
+            }
+        } else {
+            setEmoji((prevEmoji) => ({...prevEmoji, energia: Math.min(5, prevEmoji.energia + 1)}));
+        }
     }
 
     let status = EMOJI_MAP.get("happy");
